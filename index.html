@@ -1,158 +1,1152 @@
-<!-- Applydah Multi‑Page Website (GitHub Pages Ready) -->
-<!-- This canvas file contains ALL pages + assets as separate sections. -->
-<!-- Copy each section into individual files in your repository. -->
-
-============================================
-= FILE: index.html (Home Page)
-============================================
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<title>Applydah – Your Global Study Journey Starts Here</title>
-<link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8" />
+  <title>Applydah – Your Global Study Journey Starts Here</title>
+
+  <!-- SEO BASICS -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+        content="Applydah helps international students find programs, scholarships, visa guidance, and expert support to study abroad." />
+  <meta name="keywords"
+        content="study abroad, international students, scholarships, student visa, universities, Applydah" />
+  <meta name="author" content="Applydah" />
+
+  <!-- OPEN GRAPH -->
+  <meta property="og:title" content="Applydah – Your Global Study Journey Starts Here" />
+  <meta property="og:description"
+        content="Programs, scholarships, visa guidance, and real support for international students." />
+  <meta property="og:type" content="website" />
+
+  <!-- SIMPLE BRAND FAVICON (OPTIONAL) -->
+  <!-- <link rel="icon" href="favicon.ico" /> -->
+
+  <style>
+    :root {
+      --primary: #2b5cff;
+      --primary-soft: #e0e7ff;
+      --bg: #f5f7fc;
+      --bg-card: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.12);
+    }
+
+    body.dark {
+      --bg: #020617;
+      --bg-card: #020617;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --primary-soft: rgba(37, 99, 235, 0.2);
+      --shadow-soft: 0 10px 30px rgba(15,23,42,0.8);
+    }
+
+    /* GENERAL */
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    h1, h2, h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(14px);
+      color: #e5e7eb;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+      padding: 0.75rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .navbar nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      font-size: 1.1rem;
+    }
+
+    .logo span {
+      color: #60a5fa;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #e5e7eb;
+      font-size: 0.9rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 999px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .nav-links a.active,
+    .nav-links a:hover {
+      background: #1d4ed8;
+      color: #f9fafb;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 0.75rem;
+      font-size: 0.85rem;
+    }
+
+    .social-icons a {
+      text-decoration: none;
+      color: #9ca3af;
+    }
+
+    .social-icons a:hover {
+      color: #e5e7eb;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    .dark-toggle {
+      margin-left: 0.75rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: transparent;
+      color: #e5e7eb;
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 3rem 1.5rem 2.5rem;
+      text-align: center;
+      background: radial-gradient(circle at top left, #1d4ed8, #0f172a);
+      color: white;
+    }
+
+    .hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+    }
+
+    .hero p.subtitle {
+      color: #bfdbfe;
+      max-width: 550px;
+      margin: 0.5rem auto 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary,
+    .btn-outline {
+      border-radius: 999px;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .btn-primary {
+      background: #facc15;
+      color: #1f2937;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid #60a5fa;
+      color: #e5e7eb;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 2.5rem 1.5rem;
+      opacity: 0;
+      transform: translateY(18px);
+      animation: fadeIn 0.7s ease forwards;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 1.75rem;
+    }
+
+    .section-title h2 {
+      margin-bottom: 0.25rem;
+    }
+
+    .section-title p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* PROGRAM FINDER */
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .filters select,
+    .filters input {
+      padding: 0.5rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid #cbd5f5;
+      min-width: 150px;
+      background: var(--bg-card);
+      color: var(--text);
+    }
+
+    .program-results {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: 14px;
+      box-shadow: var(--shadow-soft);
+      padding: 1rem;
+    }
+
+    .program-card h3 {
+      margin-top: 0;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: #1e3a8a;
+      margin-right: 0.25rem;
+    }
+
+    /* SCHOLARSHIP FILTER */
+    .scholarship-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .scholarship-controls input,
+    .scholarship-controls select {
+      padding: 0.5rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid #cbd5f5;
+      min-width: 180px;
+      background: var(--bg-card);
+      color: var(--text);
+    }
+
+    .scholarship-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    /* VISA TIMELINE */
+    .visa-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .visa-steps {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .visa-steps li {
+      margin-bottom: 0.75rem;
+      padding-left: 1.4rem;
+      position: relative;
+      font-size: 0.95rem;
+    }
+
+    .visa-steps li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #22c55e;
+      font-size: 0.9rem;
+    }
+
+    .progress-bar {
+      height: 8px;
+      border-radius: 999px;
+      background: #e5e7eb;
+      overflow: hidden;
+      margin-bottom: 0.5rem;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0;
+      background: #22c55e;
+      transition: width 0.4s ease;
+    }
+
+    /* TESTIMONIALS SLIDER */
+    .slider {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    .testimonial-quote {
+      font-style: italic;
+      margin-bottom: 0.5rem;
+    }
+
+    .slide-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .slider-buttons {
+      text-align: right;
+      margin-top: 0.5rem;
+    }
+
+    .slider-buttons button {
+      background: transparent;
+      border: 1px solid #cbd5f5;
+      border-radius: 999px;
+      padding: 0.25rem 0.7rem;
+      margin-left: 0.25rem;
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+
+    /* SUCCESS STORIES */
+    .stories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .story-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.4rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* BLOG */
+    .blog-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .blog-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 0.5rem;
+    }
+
+    .btn {
+      background: var(--primary);
+      color: #ffffff;
+      padding: 0.45rem 0.9rem;
+      text-decoration: none;
+      border-radius: 999px;
+      border: none;
+      display: inline-block;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    /* CONTACT */
+    .contact-form {
+      max-width: 480px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 0.8rem 0.9rem;
+      border-radius: 10px;
+      border: 1px solid #cbd5f5;
+      background: var(--bg-card);
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .contact-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #020617;
+      color: #9ca3af;
+      text-align: center;
+      padding: 1.5rem 1rem 2.5rem;
+      font-size: 0.85rem;
+      margin-top: 2rem;
+    }
+
+    /* STICKY APPLY CTA */
+    .sticky-apply {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to right, #0f172a, #1d4ed8);
+      color: #f9fafb;
+      padding: 0.6rem 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.85rem;
+      z-index: 40;
+    }
+
+    .sticky-apply button {
+      border-radius: 999px;
+      border: none;
+      padding: 0.45rem 0.9rem;
+      background: #facc15;
+      color: #111827;
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+
+    /* WHATSAPP FLOAT */
+    .whatsapp-float {
+      position: fixed;
+      width: 55px;
+      height: 55px;
+      bottom: 80px;
+      right: 25px;
+      background: #25D366;
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 32px;
+      line-height: 55px;
+      box-shadow: 0 4px 10px rgba(0,0,0,.3);
+      z-index: 45;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .whatsapp-float:hover {
+      background: #1da851;
+      transform: scale(1.05);
+    }
+
+    /* MODAL */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+      justify-content: center;
+      align-items: center;
+      z-index: 60;
+    }
+
+    .modal-content {
+      background: var(--bg-card);
+      width: 90%;
+      max-width: 600px;
+      padding: 1.5rem;
+      border-radius: 14px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .close-btn {
+      float: right;
+      cursor: pointer;
+      font-size: 1.1rem;
+      color: var(--muted);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 56px;
+        right: 16px;
+        background: #020617;
+        padding: 0.9rem;
+        border-radius: 12px;
+        box-shadow: 0 3px 12px rgba(0,0,0,.4);
+        flex-direction: column;
+        min-width: 170px;
+      }
+
+      .social-icons {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .visa-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .sticky-apply {
+        font-size: 0.8rem;
+      }
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
 </head>
 <body>
-<header>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="blog.html">Blog</a>
-  </nav>
-</header>
-<main>
-  <h1>Welcome to Applydah</h1>
-  <p>Your Global Study Journey Starts Here.</p>
-  <a href="blog.html" class="btn">Read Our Blog</a>
-</main>
-</body>
-</html>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <nav>
+      <div class="logo">Apply<span>dah</span></div>
 
-============================================
-= FILE: blog.html (Blog Listing Page)
-============================================
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<title>Applydah Blog</title>
-<link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-<header>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="blog.html" class="active">Blog</a>
-  </nav>
-</header>
-<main>
-  <h1>Applydah Blog</h1>
-  <div id="blog-list"></div>
-</main>
-<script src="blog.js"></script>
-</body>
-</html>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
-============================================
-= FILE: blog.js (Loads Markdown Posts)
-============================================
-fetch('posts.json')
-  .then(res => res.json())
-  .then(posts => {
-    const container = document.getElementById('blog-list');
-    posts.forEach(p => {
-      container.innerHTML += `
-        <article class="post">
-          <h2><a href="${p.file}">${p.title}</a></h2>
-          <p>${p.desc}</p>
-          <small>${p.date}</small>
-        </article>`;
+      <ul class="nav-links">
+        <li><a href="#programs" data-target="programs">Programs</a></li>
+        <li><a href="#scholarships" data-target="scholarships">Scholarships</a></li>
+        <li><a href="#visa" data-target="visa">Visa Guide</a></li>
+        <li><a href="#testimonials" data-target="testimonials">Testimonials</a></li>
+        <li><a href="#blog" data-target="blog">Blog</a></li>
+        <li><a href="#contact" data-target="contact">Contact</a></li>
+        <li>
+          <button class="dark-toggle" type="button" onclick="toggleDarkMode()">🌙</button>
+        </li>
+      </ul>
+
+      <div class="social-icons">
+        <a href="https://facebook.com" target="_blank">Facebook</a>
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <h1>Applydah</h1>
+      <p class="subtitle">
+        Your global study journey starts here – discover programs, scholarships, and step-by-step visa guidance,
+        with support from a real international recruitment consultant.
+      </p>
+      <div class="hero-buttons">
+        <a href="#programs" class="btn-primary">Find a Program →</a>
+        <a href="#scholarships" class="btn-outline">Browse Scholarships</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAM FINDER -->
+  <section id="programs">
+    <div class="section-inner">
+      <div class="section-title">
+        <h2>Program Finder</h2>
+        <p>Filter by country, level, and tuition range.</p>
+      </div>
+
+      <div class="filters">
+        <select id="country">
+          <option value="">Any Country</option>
+          <option value="canada">Canada</option>
+          <option value="uk">United Kingdom</option>
+          <option value="australia">Australia</option>
+        </select>
+
+        <select id="level">
+          <option value="">Any Level</option>
+          <option value="bachelor">Bachelor</option>
+          <option value="master">Master</option>
+        </select>
+
+        <input type="number" id="maxfeefilter" placeholder="Max tuition (USD)" />
+        <button class="btn" onclick="filterPrograms()">Search</button>
+      </div>
+
+      <div class="program-results" id="program-results"></div>
+    </div>
+  </section>
+
+  <!-- SCHOLARSHIPS -->
+  <section id="scholarships">
+    <div class="section-inner">
+      <div class="section-title">
+        <h2>Scholarships</h2>
+        <p>Search and filter by country and type.</p>
+      </div>
+
+      <div class="scholarship-controls">
+        <input type="text" id="scholarship-search" placeholder="Search by name..." oninput="renderScholarships()" />
+        <select id="scholarship-country" onchange="renderScholarships()">
+          <option value="">Any Country</option>
+          <option value="uk">UK</option>
+          <option value="canada">Canada</option>
+          <option value="germany">Germany</option>
+        </select>
+        <select id="scholarship-type" onchange="renderScholarships()">
+          <option value="">Any Type</option>
+          <option value="fully-funded">Fully funded</option>
+          <option value="partial">Partial</option>
+          <option value="tuition">Tuition-only</option>
+        </select>
+      </div>
+
+      <div class="scholarship-list" id="scholarship-list"></div>
+    </div>
+  </section>
+
+  <!-- VISA GUIDANCE -->
+  <section id="visa">
+    <div class="section-inner">
+      <div class="section-title">
+        <h2>Visa Timeline Generator</h2>
+        <p>Select a country to see your typical student visa roadmap.</p>
+      </div>
+
+      <div class="visa-layout card">
+        <div>
+          <label for="visa-country">Choose destination</label><br />
+          <select id="visa-country" style="margin-top:0.4rem; padding:0.4rem 0.7rem; border-radius:999px; border:1px solid #cbd5f5;">
+            <option value="canada">Canada – SDS/Non-SDS</option>
+            <option value="uk">United Kingdom</option>
+            <option value="australia">Australia</option>
+          </select>
+          <br /><br />
+          <button class="btn" type="button" onclick="generateVisaTimeline()">Generate Timeline</button>
+        </div>
+
+        <div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="visa-progress"></div>
+          </div>
+          <small id="visa-summary" style="color:var(--muted); display:block; margin-bottom:0.8rem;">
+            Choose a country to view typical stages.
+          </small>
+          <ol class="visa-steps" id="visa-steps"></ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS SLIDER -->
+  <section id="testimonials">
+    <div class="section-inner">
+      <div class="section-title">
+        <h2>Student Testimonials</h2>
+        <p>Real students we’ve helped get offers and visas.</p>
+      </div>
+
+      <div class="card slider" id="testimonial-slider">
+        <!-- Slides rendered via JS -->
+        <div class="slider-buttons">
+          <button type="button" onclick="prevSlide()">‹ Prev</button>
+          <button type="button" onclick="nextSlide()">Next ›</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUCCESS STORIES -->
+  <section id="stories">
+    <div class="section-inner">
+      <div class="section-title">
+        <h2>Success Stories</h2>
+        <p>From dreams to departure – a snapshot of journeys.</p>
+      </div>
+
+      <div class="stories-grid" id="stories-grid">
+        <!-- Filled by JS to keep structure similar -->
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section id="blog">
+    <div class="section-inner">
+      <div class="section-title">
+        <h2>Latest Blog Posts</h2>
+        <p>Guides, tips, and checklists for international students.</p>
+      </div>
+
+      <div class="blog-list" id="blog-list"></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-inner">
+      <div class="section-title">
+        <h2>Contact Applydah</h2>
+        <p>Ask a question, book a consultation, or request a callback.</p>
+      </div>
+
+      <form class="contact-form" onsubmit="sendMessage(event)">
+        <input type="text" id="name" placeholder="Your Name" required />
+        <input type="email" id="email" placeholder="Your Email" required />
+        <textarea id="message" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+      <p id="form-status" style="text-align:center; margin-top:10px; font-size:0.9rem;"></p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 Applydah – Your Global Study Journey Starts Here
+  </footer>
+
+  <!-- STICKY APPLY CTA -->
+  <div class="sticky-apply">
+    Ready to start your application?
+    <button onclick="scrollToContact()">Apply Now</button>
+  </div>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/YOURNUMBER" class="whatsapp-float" target="_blank">💬</a>
+
+  <!-- BLOG MODAL -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">✖</span>
+      <h2 id="modal-title"></h2>
+      <p id="modal-body"></p>
+    </div>
+  </div>
+
+  <script>
+    /* NAV MENU & ACTIVE LINK */
+    function toggleMenu() {
+      const links = document.querySelector('.nav-links');
+      const style = getComputedStyle(links);
+      links.style.display = (style.display === 'none') ? 'flex' : 'none';
+    }
+
+    const navLinks = document.querySelectorAll('.nav-links a[data-target]');
+    const sections = Array.from(document.querySelectorAll('section[id]'));
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const id = link.getAttribute('data-target');
+        const target = document.getElementById(id);
+        if (!target) return;
+        target.scrollIntoView({ behavior: 'smooth' });
+
+        const navList = document.querySelector('.nav-links');
+        if (window.innerWidth <= 768) {
+          navList.style.display = 'none';
+        }
+      });
     });
-  });
 
-============================================
-= FILE: posts.json (Index of Blog Posts)
-============================================
-[
-  {
-    "title": "How to Apply for Canada Student Visa",
-    "desc": "Full guide to SDS and non‑SDS.",
-    "date": "2025-01-12",
-    "file": "post-canada-visa.html"
-  },
-  {
-    "title": "Top Scholarships for 2025",
-    "desc": "List of the best fully funded options.",
-    "date": "2025-01-03",
-    "file": "post-scholarships-2025.html"
-  }
-]
+    window.addEventListener('scroll', () => {
+      const scrollPos = window.scrollY + 120;
+      let currentId = null;
+      sections.forEach(sec => {
+        if (scrollPos >= sec.offsetTop && scrollPos < sec.offsetTop + sec.offsetHeight) {
+          currentId = sec.id;
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('data-target') === currentId);
+      });
+    });
 
-============================================
-= TEMPLATE FOR INDIVIDUAL BLOG POSTS (Markdown → HTML)
-============================================
-<!-- EXAMPLE FILE: post-canada-visa.md -->
-# How to Apply for Canada Student Visa
+    /* DARK MODE */
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark');
+      localStorage.setItem('applydahDark', document.body.classList.contains('dark') ? '1' : '0');
+    }
 
-This is your blog content written in **Markdown**.
+    (function initDarkMode() {
+      const saved = localStorage.getItem('applydahDark');
+      if (saved === '1') document.body.classList.add('dark');
+    })();
 
-You can write unlimited posts this way.
+    /* PROGRAM FINDER DATA */
+    const programs = [
+      { name: "BSc Computer Science", university: "Toronto Global University", country: "canada", level: "bachelor", fee: 18000 },
+      { name: "BBA International Business", university: "London Business College", country: "uk", level: "bachelor", fee: 16000 },
+      { name: "MSc Data Science", university: "London Tech Institute", country: "uk", level: "master", fee: 21000 },
+      { name: "MBA International Management", university: "Sydney Business School", country: "australia", level: "master", fee: 25000 }
+    ];
 
-<!-- GitHub Pages automatically converts markdown → HTML as long as filename ends with .md -->
+    function renderPrograms(list) {
+      const container = document.getElementById("program-results");
+      container.innerHTML = "";
+      if (!list.length) {
+        container.innerHTML = "<p>No programs match your filters right now.</p>";
+        return;
+      }
+      list.forEach(p => {
+        container.innerHTML += `
+          <article class="card program-card">
+            <h3>${p.name}</h3>
+            <p>${p.university}</p>
+            <p>
+              <span class="tag">${p.country.toUpperCase()}</span>
+              <span class="tag">${p.level}</span>
+            </p>
+            <p><strong>Tuition:</strong> $${p.fee.toLocaleString()}</p>
+          </article>
+        `;
+      });
+    }
 
-============================================
-= OPTIONAL HTML VERSION OF BLOG POST
-= (If you prefer .html pages instead of .md)
-============================================
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<title>How to Apply for Canada Student Visa</title>
-<link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-<header>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="blog.html">Blog</a>
-  </nav>
-</header>
-<main>
-  <h1>How to Apply for Canada Student Visa</h1>
-  <p>Full visa guide content here...</p>
-</main>
+    function filterPrograms() {
+      const c = document.getElementById("country").value;
+      const l = document.getElementById("level").value;
+      const f = parseInt(document.getElementById("maxfeefilter").value, 10);
+
+      const filtered = programs.filter(p =>
+        (!c || p.country === c) &&
+        (!l || p.level === l) &&
+        (!f || p.fee <= f)
+      );
+      renderPrograms(filtered);
+    }
+
+    /* Initial render */
+    renderPrograms(programs);
+
+    /* SCHOLARSHIPS */
+    const scholarships = [
+      { name: "Chevening Scholarship", country: "uk", type: "fully-funded", desc: "Prestigious UK government scholarship for one-year master’s." },
+      { name: "Vanier Canada Graduate Scholarship", country: "canada", type: "fully-funded", desc: "Doctoral scholarships for top PhD students." },
+      { name: "DAAD Postgraduate Scholarships", country: "germany", type: "partial", desc: "Funding opportunities for graduates in Germany." },
+      { name: "Canadian Excellence Award", country: "canada", type: "tuition", desc: "Partial tuition waivers for high-achieving undergrads." }
+    ];
+
+    function renderScholarships() {
+      const searchVal = document.getElementById("scholarship-search").value.toLowerCase();
+      const countryVal = document.getElementById("scholarship-country").value;
+      const typeVal = document.getElementById("scholarship-type").value;
+      const container = document.getElementById("scholarship-list");
+
+      const filtered = scholarships.filter(s => {
+        if (searchVal && !s.name.toLowerCase().includes(searchVal)) return false;
+        if (countryVal && s.country !== countryVal) return false;
+        if (typeVal && s.type !== typeVal) return false;
+        return true;
+      });
+
+      container.innerHTML = "";
+      if (!filtered.length) {
+        container.innerHTML = "<p>No scholarships match your filters right now.</p>";
+        return;
+      }
+
+      filtered.forEach(s => {
+        container.innerHTML += `
+          <article class="card blog-card">
+            <h3>${s.name}</h3>
+            <p>${s.desc}</p>
+            <p>
+              <span class="tag">${s.country.toUpperCase()}</span>
+              <span class="tag">${s.type.replace('-', ' ')}</span>
+            </p>
+          </article>
+        `;
+      });
+    }
+
+    renderScholarships();
+
+    /* VISA TIMELINE GENERATOR */
+    const visaData = {
+      canada: {
+        summary: "Typical SDS / non-SDS processing from offer to visa: 8–16 weeks.",
+        steps: [
+          "Receive offer letter from a designated learning institution.",
+          "Pay tuition deposit and arrange GIC / proof of funds.",
+          "Complete medical examination (if required).",
+          "Prepare documents: forms, SOP, financials, biometrics fee.",
+          "Submit online study permit application and book biometrics.",
+          "Give biometrics and wait for decision.",
+          "Receive passport request, submit passport, get visa and POE letter."
+        ]
+      },
+      uk: {
+        summary: "From CAS to visa decision usually 3–6 weeks.",
+        steps: [
+          "Receive unconditional offer and meet all conditions.",
+          "Pay required tuition deposit to receive CAS.",
+          "Prepare TB test (if required) and finances for 28-day rule.",
+          "Fill in UK student visa form and pay IHS & visa fees.",
+          "Book and attend biometrics / visa appointment.",
+          "Wait for decision and collect BRP/entry vignette."
+        ]
+      },
+      australia: {
+        summary: "Average Subclass 500 processing ~6–12 weeks.",
+        steps: [
+          "Receive CoE from Australian institution.",
+          "Organise OSHC health insurance.",
+          "Gather financial, academic, and English test documents.",
+          "Complete online Subclass 500 visa application and pay fee.",
+          "Biometrics and health examinations (if required).",
+          "Wait for visa decision, then arrange travel."
+        ]
+      }
+    };
+
+    function generateVisaTimeline() {
+      const countryKey = document.getElementById("visa-country").value;
+      const data = visaData[countryKey];
+      const stepsEl = document.getElementById("visa-steps");
+      const summaryEl = document.getElementById("visa-summary");
+      const progressEl = document.getElementById("visa-progress");
+
+      stepsEl.innerHTML = "";
+      data.steps.forEach(step => {
+        const li = document.createElement("li");
+        li.textContent = step;
+        stepsEl.appendChild(li);
+      });
+
+      summaryEl.textContent = data.summary;
+      const percentage = Math.min(100, data.steps.length * 15);
+      progressEl.style.width = percentage + "%";
+    }
+
+    /* TESTIMONIALS SLIDER */
+    const testimonials = [
+      {
+        name: "Ayesha (Pakistan → Canada)",
+        quote: "Applydah helped me compare options and submit a strong SDS file. I received my visa in under 4 weeks.",
+        program: "BSc Computer Science – Ontario",
+      },
+      {
+        name: "Samuel (Nigeria → UK)",
+        quote: "From course selection to CAS to visa, the process felt clear and organised.",
+        program: "MSc Data Analytics – London",
+      },
+      {
+        name: "Priya (India → Australia)",
+        quote: "They helped me understand GTE and prepare documents properly. My visa was approved on first attempt.",
+        program: "MBA – Sydney",
+      }
+    ];
+
+    let currentSlide = 0;
+
+    function renderTestimonials() {
+      const slider = document.getElementById("testimonial-slider");
+      const existingSlides = slider.querySelectorAll(".slide");
+      existingSlides.forEach(s => s.remove());
+
+      testimonials.forEach((t, index) => {
+        const div = document.createElement("div");
+        div.className = "slide card";
+        if (index === currentSlide) div.classList.add("active");
+        div.innerHTML = `
+          <p class="testimonial-quote">“${t.quote}”</p>
+          <div class="slide-footer">
+            <span>${t.name}</span>
+            <span>${t.program}</span>
+          </div>
+        `;
+        slider.insertBefore(div, slider.querySelector(".slider-buttons"));
+      });
+    }
+
+    function showSlide(index) {
+      const total = testimonials.length;
+      currentSlide = (index + total) % total;
+      renderTestimonials();
+    }
+
+    function nextSlide() {
+      showSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+      showSlide(currentSlide - 1);
+    }
+
+    renderTestimonials();
+    setInterval(nextSlide, 9000); // auto-rotate
+
+    /* SUCCESS STORIES */
+    const stories = [
+      {
+        name: "Ibrahim",
+        from: "Lagos, Nigeria",
+        to: "Birmingham, UK",
+        outcome: "Secured a £4,000 scholarship and student visa.",
+      },
+      {
+        name: "Meera",
+        from: "Kerala, India",
+        to: "Melbourne, Australia",
+        outcome: "Switched from generic agent advice to a realistic, funded plan.",
+      },
+      {
+        name: "Ali",
+        from: "Karachi, Pakistan",
+        to: "Toronto, Canada",
+        outcome: "SDS file approved after previously being refused with another consultant.",
+      }
+    ];
+
+    (function renderStories() {
+      const grid = document.getElementById("stories-grid");
+      stories.forEach(s => {
+        grid.innerHTML += `
+          <article class="card">
+            <div class="story-header">
+              <span><strong>${s.name}</strong></span>
+              <span>${s.from} → ${s.to}</span>
+            </div>
+            <p>${s.outcome}</p>
+          </article>
+        `;
+      });
+    })();
+
+    /* BLOG POSTS */
+    const blogPosts = [
+      {
+        title: "How to Apply for a Canada Student Visa (Step-by-Step)",
+        desc: "Understand SDS vs non-SDS, required funds, timelines, and common refusal reasons.",
+        img: "https://via.placeholder.com/600x300",
+        body: "In this guide, we break down Canada student visa requirements, SDS vs non-SDS, and what officers really look for in your SOP and financials..."
+      },
+      {
+        title: "Top Scholarships 2025 for International Students",
+        desc: "A list of major fully-funded and partial scholarships you should know about.",
+        img: "https://via.placeholder.com/600x300",
+        body: "Scholarships like Chevening, Vanier, DAAD, and Australian Awards can cover tuition, living expenses, and flights. Here is how to shortlist and prepare..."
+      },
+      {
+        title: "How to Choose the Right University Abroad",
+        desc: "Rankings are not everything – here’s what truly matters for your future.",
+        img: "https://via.placeholder.com/600x300",
+        body: "Instead of only chasing QS or Times rankings, focus on course content, co-op/placement options, city, cost of living, and visa/work rules..."
+      }
+    ];
+
+    const blogList = document.getElementById("blog-list");
+
+    blogPosts.forEach(post => {
+      blogList.innerHTML += `
+        <article class="card blog-card">
+          <img src="${post.img}" alt="${post.title}">
+          <h3>${post.title}</h3>
+          <p>${post.desc}</p>
+          <button class="btn" onclick="openModal('${post.title.replace(/'/g, "\\'")}', '${post.body.replace(/'/g, "\\'")}')">Read More</button>
+        </article>
+      `;
+    });
+
+    function openModal(title, content) {
+      document.getElementById('modal').style.display = 'flex';
+      document.getElementById('modal-title').innerText = title;
+      document.getElementById('modal-body').innerText = content;
+    }
+
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+
+    /* CONTACT FORM */
+    function sendMessage(e) {
+      e.preventDefault();
+      document.getElementById("form-status").innerText =
+        "Thank you! We received your message and will get back to you shortly.";
+      e.target.reset();
+    }
+
+    /* STICKY CTA */
+    function scrollToContact() {
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
 </body>
 </html>
-
-============================================
-= FILE: styles.css (Shared Styles)
-============================================
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #f5f7fc;
-  color: #111;
-}
-nav {
-  background: #2b5cff;
-  padding: 1rem;
-  display: flex;
-  gap: 1rem;
-}
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-nav a.active { text-decoration: underline; }
-main { padding: 2rem; }
-.post { margin-bottom: 1.5rem; }
-.btn {
-  display: inline-block;
-  background: #2b5cff;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  text-decoration: none;
-}
