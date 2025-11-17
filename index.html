@@ -1,0 +1,158 @@
+<!-- Applydah Multi‑Page Website (GitHub Pages Ready) -->
+<!-- This canvas file contains ALL pages + assets as separate sections. -->
+<!-- Copy each section into individual files in your repository. -->
+
+============================================
+= FILE: index.html (Home Page)
+============================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Applydah – Your Global Study Journey Starts Here</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blog</a>
+  </nav>
+</header>
+<main>
+  <h1>Welcome to Applydah</h1>
+  <p>Your Global Study Journey Starts Here.</p>
+  <a href="blog.html" class="btn">Read Our Blog</a>
+</main>
+</body>
+</html>
+
+============================================
+= FILE: blog.html (Blog Listing Page)
+============================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Applydah Blog</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="blog.html" class="active">Blog</a>
+  </nav>
+</header>
+<main>
+  <h1>Applydah Blog</h1>
+  <div id="blog-list"></div>
+</main>
+<script src="blog.js"></script>
+</body>
+</html>
+
+============================================
+= FILE: blog.js (Loads Markdown Posts)
+============================================
+fetch('posts.json')
+  .then(res => res.json())
+  .then(posts => {
+    const container = document.getElementById('blog-list');
+    posts.forEach(p => {
+      container.innerHTML += `
+        <article class="post">
+          <h2><a href="${p.file}">${p.title}</a></h2>
+          <p>${p.desc}</p>
+          <small>${p.date}</small>
+        </article>`;
+    });
+  });
+
+============================================
+= FILE: posts.json (Index of Blog Posts)
+============================================
+[
+  {
+    "title": "How to Apply for Canada Student Visa",
+    "desc": "Full guide to SDS and non‑SDS.",
+    "date": "2025-01-12",
+    "file": "post-canada-visa.html"
+  },
+  {
+    "title": "Top Scholarships for 2025",
+    "desc": "List of the best fully funded options.",
+    "date": "2025-01-03",
+    "file": "post-scholarships-2025.html"
+  }
+]
+
+============================================
+= TEMPLATE FOR INDIVIDUAL BLOG POSTS (Markdown → HTML)
+============================================
+<!-- EXAMPLE FILE: post-canada-visa.md -->
+# How to Apply for Canada Student Visa
+
+This is your blog content written in **Markdown**.
+
+You can write unlimited posts this way.
+
+<!-- GitHub Pages automatically converts markdown → HTML as long as filename ends with .md -->
+
+============================================
+= OPTIONAL HTML VERSION OF BLOG POST
+= (If you prefer .html pages instead of .md)
+============================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>How to Apply for Canada Student Visa</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blog</a>
+  </nav>
+</header>
+<main>
+  <h1>How to Apply for Canada Student Visa</h1>
+  <p>Full visa guide content here...</p>
+</main>
+</body>
+</html>
+
+============================================
+= FILE: styles.css (Shared Styles)
+============================================
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f5f7fc;
+  color: #111;
+}
+nav {
+  background: #2b5cff;
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+nav a.active { text-decoration: underline; }
+main { padding: 2rem; }
+.post { margin-bottom: 1.5rem; }
+.btn {
+  display: inline-block;
+  background: #2b5cff;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+}
